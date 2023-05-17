@@ -202,7 +202,18 @@ The main logic of the randomization is in the file "randomizer.py". here there i
 	\item{if all the songs have been removed, reinitialise the list}
 \end{enumerate}
 
-This way, it plays the songs in random order, and for a particular song, the position of the song being played (0 to 19) follows a uniform distribution.
+This way, it plays the songs in random order, and for a particular song, the position of the song being played (0 to 19) follows a uniform distribution.\\
+The main.py file uses this play\_next function to play the song, and the rest of the code is related to initialising everything and making the GUI work.\\
+The GUI consists of a play/pause button, a "next" button, which starts playing the next song, and a list of all songs on the right, which are greyed out one by one after they are played.
+
+link to the randomizer file:\url{https://github.com/Tuhil926/AI1110/blob/main/playlist\_project/randomizer.py}\\
+link to the main.py file: \url{https://github.com/Tuhil926/AI1110/blob/main/playlist\_project/main.py}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{screenshot.png}
+  \caption{Screenshot of the GUI}
+  \label{fig:scrnshot}
+\end{figure}
 
 \end{document}
 

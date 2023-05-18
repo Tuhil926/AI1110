@@ -1,7 +1,7 @@
 
 \let\negmedspace\undefined
 \let\negthickspace\undefined
-\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\documentclass[journal,12pt,onecolumn]{IEEEtran}
 %\documentclass[conference]{IEEEtran}
 %\IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
@@ -19,6 +19,11 @@
 \usepackage[breaklinks=true]{hyperref}
 \usepackage{tkz-euclide} % loads  TikZ and tkz-base
 \usepackage{listings}
+
+
+\usepackage[center]{caption}
+
+
 %
 %\usepackage{setspace}
 %\usepackage{gensymb}
@@ -186,15 +191,19 @@ columns=fullflexible
 % make the title area
 \maketitle
 
-\newpage
+%\newpage
 
 %\tableofcontents
 
 \bigskip
-\textbf{abstract: }
-In this project, we made a program to play a list of 20 songs randomly.\\
+\section{Abstract}
+In this project, we made a program to play a list of 20 songs randomly.
 
+\section{Explanation}
+\begin{itemize}
+\item
 The main logic of the randomization is in the file "randomizer.py". here there is a class called Randomizer, which has a list of song numbers. It has a method, "play\_next", which does the following:
+
 \begin{enumerate}
 	\item{generate a random integer between 0 and the length of the song list minus 1 (both inclusive) using the numpy's random.randint() function}
 	\item{start playing the song corresponding to that number using pygame's mixer module}
@@ -202,12 +211,22 @@ The main logic of the randomization is in the file "randomizer.py". here there i
 	\item{if all the songs have been removed, reinitialise the list}
 \end{enumerate}
 
-This way, it plays the songs in random order, and for a particular song, the position of the song being played (0 to 19) follows a uniform distribution.\\
-The main.py file uses this play\_next function to play the song, and the rest of the code is related to initialising everything and making the GUI work.\\
+\item
+This way, it plays the songs in random order, and for a particular song, the position of the song being played (0 to 19) follows a uniform distribution.
+\item
+The main.py file uses this play\_next function to play the song, and the rest of the code is related to initialising everything and making the GUI work.
+\item
 The GUI consists of a play/pause button, a "next" button, which starts playing the next song, and a list of all songs on the right, which are greyed out one by one after they are played.
+\end{itemize}
+
+\section{Conclusison}
+The order of the first 20 songs being played follows a uniform distribution. This is because each time we choose a song out of how many ever are remaining, we are generating a random number which chooses any of them with equal probability. So, all the permutations of the 20 songs are equally likely.
+
+\section{Figure}
 
 \begin{figure}
-  \includegraphics[width=\linewidth]{screenshot.png}
+  \centering
+	\includegraphics[width=\linewidth]{screenshot.png}
   \caption{Screenshot of the GUI}
   \label{fig:scrnshot}
 \end{figure}

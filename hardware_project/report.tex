@@ -1,7 +1,6 @@
-
 \let\negmedspace\undefined
 \let\negthickspace\undefined
-\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\documentclass[12pt,onecolumn]{IEEEtran}
 %\documentclass[conference]{IEEEtran}
 %\IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
@@ -69,6 +68,12 @@
 %\usepackage{multicol}
 %\usepackage{chngcntr}
 %\usepackage{enumerate}
+
+
+
+\usepackage[center]{caption}
+
+
 
 %\usepackage{wasysym}
 %\newcounter{MYtempeqncnt}
@@ -186,14 +191,14 @@ columns=fullflexible
 % make the title area
 \maketitle
 
-\newpage
+%\newpage
 
 %\tableofcontents
 
 \bigskip
-\textbf{abstract: }
-In this project, we made a random number generator using shift registers.\\
-Components used:
+\section{Abstract}
+In this project, we made a random number generator using shift registers.
+\section{Components used}
 \begin{enumerate}
 	\item{Breadboard}
 	\item{Seven segment display}
@@ -205,17 +210,31 @@ Components used:
 	\item{Capacitors(100nF, 10nF)}
 	\item{jumper wires}
 \end{enumerate}
-\textbf{Procedure: }
+\section{Procedure}
 \begin{itemize}
-\item{We generate the clock signal for the flip flops by using the 555 timer IC and making the respective connections.}
-\item{Next, we used the flip flops to make a shift register with 4 bits, $Q_0, Q_1, Q_2,Q_3$, and the inputs being $D_0, D_1, D_2, D_3$.}
-\item{Then the XOR gate is connected such that $D_0 = Q_0 \oplus Q_3$.}
-\item{ Then, the four bits are connected to the decoder IC, which is connected to the 7-segment display.}
+	\item We generate the clock signal for the flip flops by using the 555 timer IC and making the respective connections as shown in the figure \ref{fig:timer}.
+	\begin{figure}[h]
+        	\centering
+        	\includegraphics{images/timer.png}
+        	\caption{555 Timer IC}
+        	\label{fig:timer}
+	\end{figure}
+\item Next, we used the flip flops to make a shift register with 4 bits, $Q_0, Q_1, Q_2,Q_3$, and the inputs being $D_0, D_1, D_2, D_3$. This is shown in figure \ref{fig:block}
+	\begin{figure}[h]
+                \centering
+                \includegraphics{images/block_dia.png}
+                \caption{Shift register}
+                \label{fig:block}
+        \end{figure}
+\item Then the XOR gate is connected such that $D_0 = Q_0 \oplus Q_3$.
+\item Then, the four bits are connected to the decoder IC, which is connected to the 7-segment display.
 \end{itemize}
-\begin{figure}
-  \includegraphics[width=\linewidth]{images/circuit.jpg}
-  \caption{circuit working}
-  \label{fig:circuit}
+\section{Output image}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.1]{images/circuit.jpg}
+	\caption{circuit working}
+	\label{fig:circuit}
 \end{figure}
 \end{document}
 
